@@ -7,10 +7,12 @@ encode_operations = encode_numbers(get_operations(data))
 
 
 def print_operation(encode_operation):
+    operations = []
     for i in encode_operation:
-        print(f"{i['date']} {i['description']}\n"
-              f"{i['from_whom']} --> {i['to_whom']}\n"
-              f"{i['amount']} {i['name']}\n")
+        operations.append(f"\n{i['date']} {i['description']}\n"
+                          f"{i['from_whom']} --> {i['to_whom']}\n"
+                          f"{i['amount']} {i['name']}\n")
+    return operations
 
 
-print_operation(encode_operations)
+print(''.join(print_operation(encode_operations)))
