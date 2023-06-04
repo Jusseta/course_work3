@@ -1,7 +1,5 @@
-from data import get_data
-from data import sort_data
-from utils import get_operations
-from utils import encode_numbers
+from data import get_data, sort_data
+from utils import get_operations, encode_numbers
 
 
 data = sort_data(get_data('operations.json'))
