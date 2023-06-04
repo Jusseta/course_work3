@@ -28,7 +28,7 @@ def get_operations(sorted_data):
 
 def encode_numbers(operations):
     '''
-    Кодирует номер отправителя и номер счета
+    Кодирует номер отправителя и номер счета, делит номер карты на блоки по 4 цифры
     :param operations: список словарей
     :return: список словарей с закодированными номерами
     '''
@@ -40,5 +40,10 @@ def encode_numbers(operations):
 
         to_whom_temp = "*" * 2 + i['to_whom'].split(" ")[1][-4:]
         i['to_whom'] = i['to_whom'].split(" ")[0] + ' ' + to_whom_temp
+
+    for i in encode_operations:
+        s = i['from_whom'].split(" ")
+        chunk = [s[-1][i:i+4] for i in range(0, len(s[-1]), 4)]
+        i['from_whom'] = ' '.join(s[:-1]), ' '.join(chunk)
 
     return encode_operations
