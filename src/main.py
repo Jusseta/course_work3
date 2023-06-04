@@ -12,7 +12,7 @@ def print_operation(encode_operation):
     operations = []
     for i in encode_operation:
         operations.append(f"\n{i['date']} {i['description']}\n"
-                          f"{i['from_whom']} --> {i['to_whom']}\n"
+                          f"{i['from_whom'][0]} {i['from_whom'][1]}--> {i['to_whom']}\n"
                           f"{i['amount']} {i['name']}\n")
     return ''.join(operations)
 
