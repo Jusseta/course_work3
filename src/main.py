@@ -1,16 +1,13 @@
-from data import get_data, sort_data
-from utils import get_operations, encode_numbers
-
-
-data = sort_data(get_data('operations.json'))
-encode_operations = encode_numbers(get_operations(data))
+from src.data import get_data, sort_data
+from src.utils import get_operations, encode_numbers
+import os
 
 
 def print_operation(encode_operation):
     '''
     Создает список для вывода в нужном формате
     :param encode_operation: список словарей с закодированными номерами
-    :return: список для вывода
+    :return: готовый вывод
     '''
     operations = []
     for i in encode_operation:
@@ -19,5 +16,9 @@ def print_operation(encode_operation):
                           f"{i['amount']} {i['name']}\n")
     return ''.join(operations)
 
+
+path = os.path.join(os.path.dirname(__file__), 'operations.json')
+data = sort_data(get_data(path))
+encode_operations = encode_numbers(get_operations(data))
 
 print(print_operation(encode_operations))
