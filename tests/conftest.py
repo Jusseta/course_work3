@@ -124,7 +124,7 @@ def result_test_encode_numbers():
     return [{'amount': '44493.45',
               'date': '03.03.2019',
               'description': 'Перевод с карты на счет',
-              'from_whom': 'Visa 631935******9800',
+              'from_whom': ('Visa', '6319 35** **** 9800'),
               'name': 'USD',
               'to_whom': 'Счет **7791'}]
 
@@ -133,5 +133,5 @@ def result_test_encode_numbers():
 def result_test_print_operation():
     return ('\n'
              '03.03.2019 Перевод с карты на счет\n'
-             'Visa 631935******9800 --> Счет **7791\n'
+             'Visa 6319 35** **** 9800--> Счет **7791\n'
              '44493.45 USD\n')
