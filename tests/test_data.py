@@ -52,8 +52,7 @@ def test_get_data():
 
 
 def test_sort_data():
-    data = get_data('test_operations.json')
-    assert sort_data(data) == [
+    assert sort_data(get_data('test_operations.json') ) == [
   {
     "id": 100392079,
     "state": "EXECUTED",
