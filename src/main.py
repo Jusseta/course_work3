@@ -7,12 +7,17 @@ encode_operations = encode_numbers(get_operations(data))
 
 
 def print_operation(encode_operation):
+    '''
+    Создает список для вывода в нужном формате
+    :param encode_operation: список словарей с закодированными номерами
+    :return: список для вывода
+    '''
     operations = []
     for i in encode_operation:
         operations.append(f"\n{i['date']} {i['description']}\n"
                           f"{i['from_whom']} --> {i['to_whom']}\n"
                           f"{i['amount']} {i['name']}\n")
-    return operations
+    return ''.join(operations)
 
 
-print(''.join(print_operation(encode_operations)))
+print(print_operation(encode_operations))

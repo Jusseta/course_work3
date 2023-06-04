@@ -2,6 +2,11 @@ from datetime import datetime
 
 
 def get_operations(sorted_data):
+    '''
+    Выберает 5 первых словарей, преобразует дату и составляет список словарей в удобном формате
+    :param sorted_data: список словарей
+    :return: список словарей в нужном формате
+    '''
     operations = []
     for i in sorted_data[:5]:
         date = datetime.fromisoformat(i['date']).strftime('%d.%m.%Y')
@@ -22,6 +27,11 @@ def get_operations(sorted_data):
 
 
 def encode_numbers(operations):
+    '''
+    Кодирует номер отправителя и номер счета
+    :param operations: список словарей
+    :return: список словарей с закодированными номерами
+    '''
     encode_operations = operations
     for i in encode_operations:
         from_whom_count = len(i['from_whom'].split(" ")[-1]) - 10
